@@ -1,12 +1,27 @@
 console.log("First App Created");
 
 const fs = require('fs');
-const os = require("os");
+//const os = require("os");
 const _ = require("lodash");
+
 const node = require("./node.js")
 
-var res = node.nodeName();
-console.log(res)
+var command = process.argv[2];
+console.log("Command", command);
+console.log(process.argv)
+
+if(command === "add"){
+    console.log("Adding a new note");
+}else if(command === "list"){
+    console.log("Listing the all notes");
+}else if (command === "read"){
+    console.log("Reading the notes");
+}else {
+    console.log("Unrecognized Command")
+}
+
+// var res = node.nodeName();
+// console.log(res)
 
 // console.log("Add Number:"+ node.add(5,3));
 // console.log("Subtraction Number:"+ node.sub(5,3));
@@ -21,5 +36,5 @@ console.log(res)
 
 //fs.appendFileSync('User.txt', `Hello ${user.username}! Your age is ${node.age}`);
 
-var FilterArray = _.uniq(["Muhammad",3,5,2,4,3,"Muhammad",5])
-console.log(FilterArray)
+// var FilterArray = _.uniq(["Muhammad",3,53,"Muhammad",5])
+// console.log(FilterArray)
