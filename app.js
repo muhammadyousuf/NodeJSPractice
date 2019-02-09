@@ -29,7 +29,9 @@ if(command === "add"){
 }else if (command === "read"){
     notes.getNote(argv.title);
 }else if(command === "remove"){
-    notes.removeNote(argv.title);
+   var removeNote = notes.removeNote(argv.title);
+   var msg = removeNote ? "Node are removed Successfully" : "No node to remove"
+   console.log(msg);
 }
 else {
     console.log("Unrecognized Command")

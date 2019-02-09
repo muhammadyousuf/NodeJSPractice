@@ -38,7 +38,10 @@ getNote = (title) => {
 }
 
 removeNote = (title) => {
-    console.log("Remove Note", title);
+    var nodes = fetchData();
+    var nodeFilter = nodes.filter((node)=> node.title !== title);
+    SaveNote(nodeFilter);
+    return nodes.length !== nodeFilter.length;
 }
 
 module.exports = {
