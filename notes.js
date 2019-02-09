@@ -1,5 +1,3 @@
-console.log("Notes Its Working");
-
 const fs = require('fs');
 var fetchData = () => {
     try {
@@ -30,11 +28,13 @@ addNote = (title, body) => {
 
 
 getAll = () => {
-    console.log("Get All Notes");
+   return fetchData();
 }
 
 getNote = (title) => {
-    console.log("Read Notes", title);
+    var nodes = fetchData();
+    var nodeFilter = nodes.filter((node) => node.title === title)
+    return nodeFilter[0];
 }
 
 removeNote = (title) => {
@@ -44,9 +44,15 @@ removeNote = (title) => {
     return nodes.length !== nodeFilter.length;
 }
 
+logNote = (nodes) =>{
+    console.log("---");
+    console.log(`Title: ${nodes.title}`);
+    console.log(`Body: ${nodes.body}`);
+}
 module.exports = {
     addNote,
     getAll,
     getNote,
-    removeNote
+    removeNote,
+    logNote
 }
