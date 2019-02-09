@@ -15,7 +15,15 @@ console.log("Command", command);
 console.log("Yargs", argv)
 
 if(command === "add"){
-    notes.addNote(argv.title, argv.body);
+   var nodes =  notes.addNote(argv.title, argv.body);
+   if(nodes){
+       console.log('Nodes is Created');
+       console.log("---");
+       console.log(`Title: ${nodes.title}`);
+       console.log(`Body: ${nodes.body}`);
+   }else{
+       console.log('Node is already Taken');
+   }
 }else if(command === "list"){
     notes.getAll();
 }else if (command === "read"){
